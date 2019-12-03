@@ -2,8 +2,7 @@
 
 .portfolio {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-direction: column;
   padding-bottom: 2em;
 
   &__wrap {
@@ -11,11 +10,40 @@
     justify-content: space-between;
   }
 
+  &__double {
+    display: flex;
+    justify-content: space-between;
+    height: 1150px;
+  }
+
   &__card {
-    //display: flex;
-    //flex-direction: column;
-    //align-items: flex-start;
-    width: 75%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6em;
+
+    &_big {
+      max-width: 75%;
+    }
+
+    &_small {
+      max-width: 35%;
+      align-self: flex-end;
+    }
+
+    &_small-h {
+      max-width: 35%;
+      align-self: flex-start;
+    }
+
+    &_medium {
+      max-width: 50%;
+      align-self: flex-start;
+    }
+
+    &_medium-h {
+      max-width: 50%;
+      align-self: flex-end;
+    }
   }
 
   &__image {
@@ -24,17 +52,19 @@
 
   &__title {
     text-transform: capitalize;
-    margin-bottom: 1em;
+    font-size: 1.5em;
+    margin-bottom: .8em;
   }
 
   &__description {
-    width: 50%;
-    margin-bottom: 2em;
+    width: 75%;
+    margin-bottom: 1em;
   }
 
   &__tech {
     color: $light-text;
     margin-bottom: 1em;
+    max-width: 45%;
   }
 
   &__info {
