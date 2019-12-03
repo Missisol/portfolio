@@ -1,0 +1,33 @@
+@use 'variables' as v;
+@use 'mixines' as m;
+
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  background: v.$background;
+  color: v.$white;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+
+  @include m.desktop() {
+    max-width: v.$desktop-container;
+  }
+
+  @include m.tablet() {
+  max-width: 80%;
+}
+
+  @include m.phone() {
+    max-width: 80%;
+  }
+}
+
+//svg path {
+//  fill: inherit;
+//}
+

@@ -1,0 +1,14 @@
+@use '../config' as *;
+
+.footer {
+  min-height: 100px;
+  display: flex;
+  padding: 1.5em 0;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+

@@ -1,0 +1,99 @@
+@use '../config' as *;
+
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-bottom: 2em;
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__card {
+    //display: flex;
+    //flex-direction: column;
+    //align-items: flex-start;
+    width: 75%;
+  }
+
+  &__image {
+    margin-bottom: 2em;
+  }
+
+  &__title {
+    text-transform: capitalize;
+    margin-bottom: 1em;
+  }
+
+  &__description {
+    width: 50%;
+    margin-bottom: 2em;
+  }
+
+  &__tech {
+    color: $light-text;
+    margin-bottom: 1em;
+  }
+
+  &__info {
+    display: flex;
+  }
+
+  &__button {
+    @include button;
+    margin-right: 4em;
+  }
+
+  &__link {
+    @include link;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  max-width: 50%;
+  min-width: 370px;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  margin: 3em 15px 0;
+  padding: 1em;
+
+
+  &__image {
+    margin-bottom: 1em;
+    width: 300px;
+    align-self: center;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 1.5em;
+    color: inherit;
+  }
+
+  &__link-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    display: flex !important;
+    text-decoration: underline !important;
+  }
+
+  &__github {
+    width: 40px;
+    height: 21px;
+  }
+}
+
