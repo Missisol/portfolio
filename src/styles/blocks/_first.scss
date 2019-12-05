@@ -27,15 +27,27 @@
     justify-content: flex-end;
   }
 
+  &__text-typing {
+    width: 100%;
+
+    @include desktop {
+      height: 144px;
+    }
+
+    @include tablet {
+      height: 90px;
+    }
+  }
+
   &__text {
     color: $white;
-    transition: .5s;
+    overflow: hidden;
 
     &_greeting {
 
       @include desktop {
         width: 24%;
-        margin: 0 0 8em 76%;
+        margin: 0 0 2em 76%;
       }
 
       @include tablet {
@@ -47,17 +59,18 @@
     &_link {
       margin-left: calc(#{$desktop-container} * 0.1);
       line-height: calc(3em * 1.5);
+      transition: .5s;
 
       @include tablet {
         margin-left: 0;
         margin-right: calc(#{$tablet-container} * 0.2);
       }
-    }
 
-    &:hover {
+      &:hover {
 
-      @include desktop {
-        color: $light-text;
+        @include desktop {
+          color: $light-text;
+        }
       }
     }
   }
@@ -82,6 +95,41 @@
     }
   }
 
+  &__title-wrap {
+    position: relative;
+    overflow: hidden;
+
+    @include desktop {
+      height: 95px;
+    }
+
+    @include tablet {
+      height: 68px;
+    }
+
+    @include phone {
+      height: 44px;
+    }
+  }
+
+  &__title-one {
+    position: absolute;
+    opacity: 0;
+    animation: appearance .4s linear .4s forwards;
+  }
+
+  &__title-two {
+    position: absolute;
+    opacity: 0;
+    animation: appearance .4s linear .6s forwards;
+  }
+
+  &__title-three {
+    position: absolute;
+    opacity: 0;
+    animation: appearance .4s linear .8s forwards;
+  }
+
   &__wrap {
 
     @include tablet {
@@ -93,3 +141,32 @@
     }
   }
 }
+
+@keyframes appearance {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  5% {
+    opacity: 1;
+    transform: translateY(95%);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(75%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(50%);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(25%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+

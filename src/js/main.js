@@ -5,6 +5,10 @@ const menuWrap = document.querySelector('#menu-wrap');
 const anchors = document.querySelectorAll('.anchor');
 const arrow = document.querySelector('.arrow');
 const main = document.querySelector('.main');
+const textContainer = document.querySelector('.main__text_greeting');
+const message = `Привет. Меня зовут Марина. Я верстаю сайты с помощью HTML, CSS и JS. 
+                Люблю минимализм и сложные задачи.`;
+let counter = 0;
 
 function currentYPosition() {
     // Firefox, Chrome, Opera, Safari
@@ -101,13 +105,19 @@ function checkForScrolling() {
     arrow.addEventListener('click', () => {
         smoothScroll('#home');
     })
+}
 
+function typing() {
+    textContainer.innerHTML = message.substring(0, counter);
+    const timer = setTimeout('typing()', 100);
+    counter === message.length ? clearTimeout(timer) : counter++;
 }
 
 function init() {
     toggleSideMenu();
     checkForScrolling();
     toggleVisibilityOfTheArrow();
+    setTimeout( 'typing()', 1200);
 
     document.addEventListener('scroll', () => {
         toggleVisibilityOfTheArrow();

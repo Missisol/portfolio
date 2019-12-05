@@ -14,7 +14,7 @@
 </head>
 <body>
 <header id="home" class="header">
-    <div  class="header__container container">
+    <div class="header__container container">
         <div class="header__portfolio">
             <a href="mailto:missis_ol@mail.ru" class="header__item header__item_link">missis_ol@mail.ru</a>
         </div>
@@ -38,13 +38,19 @@
 </header>
 <div class="content container">
     <main class="main">
-        <p class="main__text main__text_greeting">
-            Привет. Меня зовут Марина. Я верстаю сайты с помощью HTML, CSS и JS.
-            Люблю минимализм и сложные задачи.
-        </p>
+        <div class="main__text-typing">
+            <p class="main__text main__text_greeting"></p>
+        </div>
         <h1 class="main__title">
-            Занимаюсь фронтендом уже 1 год 6 месяцев
-            27 дней 12 часов 6 минут 32 секунд
+            <div class="main__title-wrap">
+                <span class="main__title-one">Занимаюсь фронтендом</span>
+            </div>
+            <div class="main__title-wrap">
+                <span class="main__title-two">уже 1 год 6 месяцев</span>
+            </div>
+            <div class="main__title-wrap">
+                <span class="main__title-three">27 дней 12 часов 6 минут 32 секунд</span>
+            </div>
         </h1>
         <div class="main__wrap">
             <a href="https://github.com/Missisol/" class="main__text main__text_link" target="_blank">Github</a>
@@ -211,12 +217,11 @@
 <div class="container">
     <footer class="footer" id="contacts">
         <nav class="footer__nav">
-            <a href="#" class="footer__name anchor">Контакты</a>
+            <div class="footer__name anchor">Контакты</div>
             <nav class="header__nav">
                 <a href="#portfolio" class="header__item anchor">Портфолио</a>
                 <a href="#home" class="header__item anchor">К началу</a>
             </nav>
-<!--            <a href="#portfolio" class="footer__name footer__name_menu anchor">Портфолио</a>-->
         </nav>
         <h2 class="footer__title">Есть проект?</h2>
         <a href="mailto:missis_ol@mail.ru" class="footer__link">missis_ol@mail.ru</a>
