@@ -1,0 +1,157 @@
+@use 'mixines' as *;
+
+.col-3s {
+
+  @include desktop {
+    max-width: 75%;
+    align-self: flex-start;
+  }
+
+  @include tablet {
+    max-width: 75%;
+    align-self: flex-start;
+  }
+
+  @include phone {
+    max-width: 100%;
+  }
+}
+
+.col-3c {
+
+  @include desktop {
+    max-width: 75%;
+    align-self: center;
+  }
+
+  @include tablet {
+    max-width: 75%;
+    align-self: center;
+  }
+
+  @include phone {
+    max-width: 100%;
+  }
+}
+
+.col-3e {
+
+  @include desktop {
+    max-width: 75%;
+    align-self: flex-end;
+  }
+
+  @include tablet {
+    max-width: 75%;
+    align-self: flex-end;
+  }
+
+  @include phone {
+    max-width: 100%;
+  }
+}
+
+.col-2s {
+
+  @include desktop {
+    max-width: 50%;
+    align-self: flex-start;
+    margin-top: -400px;
+  }
+
+  @include tablet {
+    max-width: 50%;
+    align-self: flex-start;
+  }
+
+  @include phone {
+    max-width: 100%;
+  }
+}
+
+.col-2c {
+
+  @include desktop {
+    max-width: 50%;
+    align-self: center;
+  }
+
+  @include tablet {
+    max-width: 50%;
+    align-self: center;
+  }
+
+  @include phone {
+    max-width: 100%;
+  }
+}
+
+.col-2e {
+
+  @include desktop {
+    max-width: 50%;
+    align-self: flex-end;
+  }
+
+  @include tablet {
+    max-width: 50%;
+    align-self: flex-end;
+  }
+
+  @include phone {
+    max-width: 100%;
+  }
+}
+
+
+.col-1s {
+
+  @include desktop {
+    max-width: 35%;
+    align-self: flex-start;
+  }
+
+  @include tablet {
+    max-width: 50%;
+    align-self: flex-start;
+  }
+
+  @include phone {
+    max-width: 100%;
+  }
+}
+
+.col-1c {
+
+  @include desktop {
+    max-width: 35%;
+    align-self: center;
+  }
+
+  @include tablet {
+    max-width: 50%;
+    align-self: center;
+  }
+
+  @include phone {
+    max-width: 100%;
+  }
+}
+
+.col-1e {
+
+  @include desktop {
+    max-width: 35%;
+    align-self: flex-end;
+  }
+
+  @include tablet {
+    max-width: 50%;
+    align-self: flex-end;
+  }
+
+  @include phone {
+    max-width: 100%;
+  }
+}
+

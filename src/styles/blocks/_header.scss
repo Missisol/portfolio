@@ -1,6 +1,7 @@
 @use '../config' as *;
 
 .header {
+    position: relative;
     display: flex;
     flex-direction: column;
 
@@ -9,19 +10,139 @@
         display: flex;
         justify-content: space-between;
         padding: 3em 0;
+
+        @include phone {
+            padding: 1.5em 0;
+        }
      }
 
+    &__portfolio,
     &__nav {
-        display: flex;
+        @include phone {
+            display: none;
+        }
+    }
+
+    &__nav {
+
+        @include desktop {
+            display: flex;
+        }
+
+        @include tablet {
+            display: flex;
+        }
     }
 
     &__item {
         color: $white;
         margin-left: 3.5em;
         text-decoration: none;
+        transition: .5s;
 
         &_link {
             margin-left: 0;
         }
+
+        &:hover {
+
+            @include desktop {
+                color: $light-text;
+            }
+        }
     }
+
+    &__icon-wrap {
+
+        @include desktop {
+            display: none;
+        }
+
+        @include tablet {
+            display: none;
+        }
+
+        @include phone {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 48px;
+            height: 100%;
+        }
+    }
+
+    &__icon,
+    &__icon::before,
+    &__icon::after {
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        left: 50%;
+        margin-left: -12px;
+        background: $white;
+        width: 24px;
+        height: 2px;
+    }
+
+    &__icon::before,
+    &__icon::after {
+        content: '';
+        display: block;
+        transition: 0.2s;
+    }
+
+    &__icon::before {
+        transform: translateY(-6px);
+    }
+
+    &__icon::after {
+        transform: translateY(6px);
+    }
+
+    &__menu-wrap {
+        position: absolute;
+        z-index: 10;
+        background: $background;
+        top: 3em;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 3em 2em;
+        transition: right .5s ease-in-out;
+    }
+
+    &__menu-item,
+    &__link {
+        color: $white;
+        text-decoration: none;
+    }
+
+    &__menu-item {
+        font-size: 2em;
+        line-height: 2;
+
+        &_last {
+            margin-bottom: 1.5em;
+        }
+    }
+
+    &__link {
+        line-height: 2;
+    }
+}
+
+.invisible {
+    display: none;
+}
+
+#icon-wrap.active #icon {
+    height: 0;
+}
+
+#icon-wrap.active #icon::before {
+    transform: rotate(-45deg);
+}
+
+#icon-wrap.active #icon::after {
+    transform: rotate(45deg);
 }

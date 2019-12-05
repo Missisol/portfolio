@@ -20,17 +20,26 @@
 
 @mixin button {
   font-size: 16px;
-  padding: 12px 60px;
   border: 1px solid v.$white;
   color: v.$white;
   text-decoration: none;
   transition: .5s;
 
   @include desktop {
+    padding: 10px 60px;
+
     &:hover {
       background: v.$hover-button;
       border: 1px solid v.$hover-button;
     }
+  }
+
+  @include tablet {
+    padding: 10px 20px;
+  }
+
+  @include phone {
+    padding: 8px 20px;
   }
 }
 
