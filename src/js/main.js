@@ -1,26 +1,29 @@
 'use strict';
+const iconWrap = document.querySelector('#icon-wrap');
+const menuWrap = document.querySelector('#menu-wrap');
+
+function closeMenu() {
+    iconWrap.classList.remove('active');
+    menuWrap.classList.remove('visible');
+    menuWrap.classList.add('invisible');
+    document.body.style.overflow = 'auto';
+}
+
+function openMenu() {
+    iconWrap.classList.add('active');
+    menuWrap.classList.remove('invisible');
+    menuWrap.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+}
 
 function toggleSideMenu() {
-    const iconWrap = document.querySelector('#icon-wrap');
-    const menuWrap = document.querySelector('#menu-wrap');
-    const menu = document.querySelector('#menu');
 
-    iconWrap.addEventListener('click', () => {
+    iconWrap.addEventListener('click', () => iconWrap.classList.contains('active') ?
+        closeMenu() : openMenu());
 
-        if (iconWrap.classList.contains('active')) {
-
-            iconWrap.classList.remove('active');
-            menuWrap.classList.add('invisible');
-
-            document.body.style.overflow = 'auto';
-        } else {
-            iconWrap.classList.add('active');
-            menuWrap.classList.remove('invisible');
-
-            document.body.style.overflow = 'hidden';
-        }
-    })
-
+    menuWrap.addEventListener('click', () => {
+        closeMenu();
+    });
 }
 
 

@@ -1,5 +1,12 @@
 @use '../config' as *;
 
+.content {
+
+  @include phone {
+    padding-top: 4em;
+  }
+}
+
 .main {
   display: flex;
   height: calc(100vh - 7em);
