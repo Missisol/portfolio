@@ -16,6 +16,17 @@
     color: $white;
     text-decoration: none;
     margin-bottom: .8em;
+
+    &_menu {
+      font-size: 1em;
+      transition: .5s;
+
+      @include desktop {
+        &:hover {
+          color: $light-text;
+        }
+      }
+    }
   }
 
   &__title {

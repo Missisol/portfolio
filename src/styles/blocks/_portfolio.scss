@@ -50,7 +50,6 @@
     padding-top: 3em;
 
     @include phone {
-      padding-top: 1em;
       margin-bottom: 2em;
     }
   }
@@ -151,3 +150,28 @@
   }
 }
 
+.arrow {
+  position: sticky;
+  bottom: 5%;
+  left: 90%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: $white;
+  mix-blend-mode: difference;
+  display: flex !important;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .1s;
+
+  @include phone {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__up {
+    width: 70%;
+    height: 70%;
+    margin-top: 10%;
+  }
+}

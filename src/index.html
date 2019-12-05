@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-<header class="header">
-    <div class=" header__container container">
+<header id="home" class="header">
+    <div  class="header__container container">
         <div class="header__portfolio">
             <a href="mailto:missis_ol@mail.ru" class="header__item header__item_link">missis_ol@mail.ru</a>
         </div>
         <nav class="header__nav">
-            <a href="#portfolio" class="header__item">Портфолио</a>
-            <a href="#contacts" class="header__item">Контакты</a>
+            <a href="#portfolio" class="header__item anchor">Портфолио</a>
+            <a href="#contacts" class="header__item anchor">Контакты</a>
         </nav>
         <div id="icon-wrap" class="header__icon-wrap">
             <span id="icon" class="header__icon"></span>
@@ -29,8 +29,8 @@
     <div id="menu-wrap" class="header__menu-wrap invisible">
         <nav id="menu" class="header__menu">
             <a href="#portfolio" class="header__menu-item">Портфолио</a>
-            <a href="#contacts" class="header__menu-item header__menu-item_last">Контакты</a>
-            <a href="mailto:missis_ol@mail.ru" class="header__link">missis_ol@mail.ru</a>
+            <a href="#contacts" class="header__menu-item header__menu-item_last anchor">Контакты</a>
+            <a href="mailto:missis_ol@mail.ru" class="header__link anchor">missis_ol@mail.ru</a>
             <div class="header__link">Telegram @missis_ol</div>
             <div class="header__link">Skype @missis_ol</div>
         </nav>
@@ -48,11 +48,11 @@
         </h1>
         <div class="main__wrap">
             <a href="https://github.com/Missisol/" class="main__text main__text_link" target="_blank">Github</a>
-            <a href="#contacts" class="main__text main__text_link">Связаться</a>
+            <a href="#contacts" class="main__text main__text_link anchor">Связаться</a>
         </div>
     </main>
-    <div class="portfolio" id="portfolio">
-        <div class="portfolio__wrap">
+    <div class="portfolio">
+        <div id="portfolio" class="portfolio__wrap">
             <div class="portfolio__name">Портфолио</div>
             <section class="portfolio__card col-3e">
                 <img src="assets/images/sound.jpg" alt="Студия саунд-дизайна"
@@ -204,12 +204,19 @@
             </div>
         </section>
     </div>
+    <a href="#home" class="arrow anchor">
+        <img class="arrow__up" src="assets/images/up.svg" alt="arrow up">
+    </a>
 </div>
 <div class="container">
     <footer class="footer" id="contacts">
         <nav class="footer__nav">
-            <a href="#" class="footer__name">Контакты</a>
-            <a href="#portfolio" class="footer__name">Портфолио</a>
+            <a href="#" class="footer__name anchor">Контакты</a>
+            <nav class="header__nav">
+                <a href="#portfolio" class="header__item anchor">Портфолио</a>
+                <a href="#home" class="header__item anchor">К началу</a>
+            </nav>
+<!--            <a href="#portfolio" class="footer__name footer__name_menu anchor">Портфолио</a>-->
         </nav>
         <h2 class="footer__title">Есть проект?</h2>
         <a href="mailto:missis_ol@mail.ru" class="footer__link">missis_ol@mail.ru</a>
