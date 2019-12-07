@@ -287,31 +287,22 @@ function getAllTimes() {
     getDays();
     getMonth();
     getYear();
-
 }
 
 function init() {
     toggleSideMenu();
     checkForScrolling();
     toggleVisibilityOfTheArrow();
-    // setTimeout('typing()', 1200);
-    typing();
+    getAllTimes();
+    checkInitImagesVisibility();
+    getScrollDirection();
 
+    setTimeout('typing()', 1200);
     setTimeout(function cb() {
         getSeconds();
         getMinutes();
         setTimeout(cb, 1000)
     }, 1000);
-
-    setTimeout(getAllTimes, 2000);
-    // getSeconds();
-    // getMinutes();
-    // getHours();
-    // getDays();
-    // getMonth();
-    // getYear();
-    checkInitImagesVisibility();
-    getScrollDirection();
 
     document.addEventListener('scroll', (e) => {
         toggleVisibilityOfTheArrow();
