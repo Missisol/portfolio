@@ -202,7 +202,7 @@ function getEndingForSecondsMinutes(num) {
     if ( num >= 11 && num < 15) {
         ending = '';
     } else if (num % 10 === 1) {
-        ending = 'а';
+        ending = 'у';
     } else if (num % 10 > 1 && num % 10 < 5) {
         ending = 'ы';
     } else {
@@ -280,12 +280,22 @@ function getYear() {
     year.textContent = String(`${years} ${text}`);
 }
 
+function getAllTimes() {
+    getSeconds();
+    getMinutes();
+    getHours();
+    getDays();
+    getMonth();
+    getYear();
+
+}
+
 function init() {
     toggleSideMenu();
     checkForScrolling();
     toggleVisibilityOfTheArrow();
-    setTimeout('typing()', 1200);
-    // typing();
+    // setTimeout('typing()', 1200);
+    typing();
 
     setTimeout(function cb() {
         getSeconds();
@@ -293,12 +303,13 @@ function init() {
         setTimeout(cb, 1000)
     }, 1000);
 
-    getSeconds();
-    getMinutes();
-    getHours();
-    getDays();
-    getMonth();
-    getYear();
+    setTimeout(getAllTimes, 2000);
+    // getSeconds();
+    // getMinutes();
+    // getHours();
+    // getDays();
+    // getMonth();
+    // getYear();
     checkInitImagesVisibility();
     getScrollDirection();
 
