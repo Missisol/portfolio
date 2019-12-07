@@ -3,6 +3,7 @@
 const message = `Привет. Меня зовут Марина. Я верстаю сайты с помощью HTML, CSS и JS. 
                 Люблю минимализм и сложные задачи.`;
 let counter = 0;
+const src = 'assets/libs/luxon.min.js';
 const iconWrap = document.querySelector('#icon-wrap');
 const menuWrap = document.querySelector('#menu-wrap');
 const anchors = document.querySelectorAll('.anchor');
@@ -16,6 +17,11 @@ const hour = document.querySelector('#hour');
 const day = document.querySelector('#day');
 const month = document.querySelector('#month');
 const year = document.querySelector('#year');
+const titleOne = document.querySelector('.main__title-one');
+const titleTwo = document.querySelector('.main__title-two');
+const titleThree = document.querySelector('.main__title-three');
+const titleFour = document.querySelector('.main__title-four');
+const titleFive = document.querySelector('.main__title-five');
 
 function currentYPosition() {
     // Firefox, Chrome, Opera, Safari
@@ -186,6 +192,14 @@ function typing() {
     counter === message.length ? clearTimeout(timer) : counter++;
 }
 
+function makeAnimation() {
+    titleOne.classList.add('animate-one');
+    titleTwo.classList.add('animate-two');
+    titleThree.classList.add('animate-three');
+    titleFour.classList.add('animate-four');
+    titleFive.classList.add('animate-five');
+}
+
 function getInterval() {
     let DateTime = luxon.DateTime;
     let Interval = luxon.Interval;
@@ -199,7 +213,7 @@ function getInterval() {
 
 function getEndingForSecondsMinutes(num) {
     let ending = '';
-    if ( num >= 11 && num < 15) {
+    if (num >= 11 && num < 15) {
         ending = '';
     } else if (num % 10 === 1) {
         ending = 'у';
@@ -213,7 +227,7 @@ function getEndingForSecondsMinutes(num) {
 
 function getEndingForHoursMonth(num, str) {
     let ending = '';
-    if ( num >= 11 && num < 15) {
+    if (num >= 11 && num < 15) {
         str === 'час' ? ending = 'ов' : ending = 'ев';
     } else if (num % 10 === 1) {
         ending = '';
@@ -227,7 +241,7 @@ function getEndingForHoursMonth(num, str) {
 
 function getTextForDays(num) {
     let text = '';
-    if ( num >= 11 && num < 15) {
+    if (num >= 11 && num < 15) {
         text = 'дней';
     } else if (num % 10 === 1) {
         text = 'день';
@@ -289,20 +303,35 @@ function getAllTimes() {
     getYear();
 }
 
+function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        let script = document.createElement('script');
+        script.src = src;
+        script.onload = () => resolve(script);
+        script.onerror = () => reject(new Error('error'));
+        document.head.append(script);
+    })
+}
+
 function init() {
     toggleSideMenu();
     checkForScrolling();
     toggleVisibilityOfTheArrow();
-    getAllTimes();
     checkInitImagesVisibility();
     getScrollDirection();
 
-    setTimeout('typing()', 1200);
-    setTimeout(function cb() {
-        getSeconds();
-        getMinutes();
-        setTimeout(cb, 1000)
-    }, 1000);
+    loadScript(src)
+        .then(() => getAllTimes())
+        .then(() => makeAnimation())
+        .then(() => setTimeout('typing()', 1200))
+        .then(() => {
+            setTimeout(function cb() {
+                getSeconds();
+                getMinutes();
+                setTimeout(cb, 1000)
+            }, 1000);
+        })
+        .catch(error => console.log('error'));
 
     document.addEventListener('scroll', (e) => {
         toggleVisibilityOfTheArrow();
