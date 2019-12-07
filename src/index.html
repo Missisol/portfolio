@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width initial-scale=1">
     <meta property="og:title" content="Portfolio">
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://siteforstudies.h1n.ru/index.html/">
@@ -41,17 +41,25 @@
         <div class="main__text-typing">
             <p class="main__text main__text_greeting"></p>
         </div>
-        <h1 class="main__title">
+        <div class="main__title">
             <div class="main__title-wrap">
-                <span class="main__title-one">Занимаюсь фронтендом</span>
+                <span class="main__title-one">Занимаюсь</span>
             </div>
             <div class="main__title-wrap">
-                <span class="main__title-two">уже 1 год 6 месяцев</span>
+                <span class="main__title-two">фронтенд-разработкой</span>
             </div>
             <div class="main__title-wrap">
-                <span class="main__title-three">27 дней 12 часов 6 минут 32 секунд</span>
+                <span class="main__title-three">уже <span id="year"></span> <span id="month"></span></span>
             </div>
-        </h1>
+            <div class="main__title-wrap">
+                <span class="main__title-four">
+                    <span id="day"></span> <span id="hour"></span> <span id="minute"></span>
+                </span>
+            </div>
+            <div class="main__title-wrap">
+                <span class="main__title-five"><span id="second"></span></span>
+            </div>
+        </div>
         <div class="main__wrap">
             <a href="https://github.com/Missisol/" class="main__text main__text_link" target="_blank">Github</a>
             <a href="#contacts" class="main__text main__text_link anchor">Связаться</a>
@@ -223,13 +231,13 @@
                 <a href="#home" class="header__item anchor">К началу</a>
             </nav>
         </nav>
-        <h2 class="footer__title">Есть проект?</h2>
         <a href="mailto:missis_ol@mail.ru" class="footer__link">missis_ol@mail.ru</a>
         <div class="footer__link">Telegram @missis_ol</div>
         <div class="footer__link">Skype @missis_ol</div>
     </footer>
 </div>
 
+<script src="assets/libs/luxon.min.js"></script>
 <script src="js/main.min.js"></script>
 </body>
 </html>
