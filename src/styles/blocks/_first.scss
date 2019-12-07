@@ -9,16 +9,18 @@
 
 .main {
   display: flex;
-  height: calc(100vh - 7em);
 
   @include desktop {
     flex-wrap: wrap;
     align-content: flex-start;
     padding-top: 2.5em;
+    height: calc(100vh - 7em);
   }
 
   @include tablet {
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    height: calc(100vh - 7em);
     padding-top: 0;
   }
 
@@ -29,14 +31,7 @@
 
   &__text-typing {
     width: 100%;
-
-    @include desktop {
-      height: 144px;
-    }
-
-    @include tablet {
-      height: 90px;
-    }
+    height: 6em;
   }
 
   &__text {
@@ -46,24 +41,26 @@
     &_greeting {
 
       @include desktop {
-        width: 24%;
-        margin: 0 0 2em 76%;
+        width: 25%;
+        margin-left: 75%;
       }
 
       @include tablet {
-        width: 50%;
-        margin-bottom: 2em;
+        width: 30%;
+        margin-left: 70%;
       }
     }
 
     &_link {
-      margin-left: calc(#{$desktop-container} * 0.1);
-      line-height: calc(3em * 1.5);
       transition: .5s;
+
+      @include desktop {
+        margin-bottom: 3.5em;
+      }
 
       @include tablet {
         margin-left: 0;
-        margin-right: calc(#{$tablet-container} * 0.2);
+        margin-bottom: 2.5em;
       }
 
       &:hover {
@@ -80,17 +77,18 @@
 
     @include desktop {
       font-size: 3.5em;
-      width: 66%;
+      width: 75%;
     }
 
     @include tablet {
       font-size: 2.5em;
-      width: 100%;
+      width: 70%;
       margin-bottom: 1em;
+      margin-top: -1em;
     }
 
     @include phone {
-      font-size: 1.8em;
+      font-size: 1.6em;
       margin: 1em 0 2em;
     }
   }
@@ -115,25 +113,41 @@
   &__title-one {
     position: absolute;
     opacity: 0;
-    animation: appearance .4s linear .4s forwards;
+    animation: appearance .4s linear 1.4s forwards;
   }
 
   &__title-two {
     position: absolute;
     opacity: 0;
-    animation: appearance .4s linear .6s forwards;
+    animation: appearance .4s linear 1.5s forwards;
   }
 
   &__title-three {
     position: absolute;
     opacity: 0;
-    animation: appearance .4s linear .8s forwards;
+    animation: appearance .4s linear 1.6s forwards;
+  }
+
+  &__title-four {
+    position: absolute;
+    opacity: 0;
+    animation: appearance .4s linear 1.7s forwards;
+  }
+
+  &__title-five {
+    position: absolute;
+    opacity: 0;
+    animation: appearance .4s linear 1.8s forwards;
   }
 
   &__wrap {
 
+    @include desktop {
+      padding-top: 8em;
+    }
+
     @include tablet {
-      display: flex;
+      padding-top: 5em;
     }
 
     @include phone {

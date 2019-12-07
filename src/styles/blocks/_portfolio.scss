@@ -26,16 +26,12 @@
 
   &__image {
     margin-bottom: 2em;
-    transition: .6s;
-
-        @include desktop {
-          &:hover {
-            transform: scale(1.03);
-          }
-        }
+    transform: scale(1.1);
+    transition: 3s;
 
     @include phone {
       margin-bottom: 1em;
+      transform: scale(1);
     }
   }
 
@@ -111,58 +107,6 @@
   }
 }
 
-//.card {
-//  display: flex;
-//  flex-direction: column;
-//  width: 30%;
-//  max-width: 50%;
-//  min-width: 370px;
-//  border: 1px solid rgba(0,0,0,.125);
-//  border-radius: .25rem;
-//  margin: 3em 15px 0;
-//  padding: 1em;
-//
-//
-//  &__image {
-//    margin-bottom: 1em;
-//    width: 300px;
-//    align-self: center;
-//
-//    @include desktop {
-//      &:hover {
-//        transform: scale(1.1);
-//      }
-//    }
-//  }
-//
-//  &__inner {
-//    display: flex;
-//    justify-content: space-between;
-//    align-items: center;
-//  }
-//
-//  &__title {
-//    font-weight: 400;
-//    font-size: 1.5em;
-//    color: inherit;
-//  }
-//
-//  &__link-wrap {
-//    display: flex;
-//    justify-content: space-between;
-//  }
-//
-//  &__link {
-//    display: flex !important;
-//    text-decoration: underline !important;
-//  }
-//
-//  &__github {
-//    width: 40px;
-//    height: 21px;
-//  }
-//}
-
 .arrow {
   position: sticky;
   bottom: 5%;
@@ -187,4 +131,9 @@
     height: 70%;
     margin-top: 10%;
   }
+}
+
+.scale {
+  transform: scale(1);
+  transition: 3s;
 }
