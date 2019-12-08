@@ -159,6 +159,7 @@ function closeMenu() {
 }
 
 function openMenu() {
+    menuWrap.classList.contains('hidden') ? menuWrap.classList.remove('hidden') : null;
     iconWrap.classList.add('active');
     menuWrap.classList.add('visible');
     menuWrap.classList.remove('invisible');

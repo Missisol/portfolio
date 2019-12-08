@@ -146,6 +146,10 @@
     transform: translateX(0);
 }
 
+.hidden {
+    opacity: 0;
+}
+
 #icon-wrap.active #icon {
     height: 0;
 }
