@@ -64,9 +64,6 @@ function styles() {
         .pipe(gulpIf(!isDevelopment, cleanCSS({
             level: 2
         })))
-        .pipe(rename({
-            suffix: '.min'
-        }))
         .pipe(dest(paths.styles.dest))
 }
 
