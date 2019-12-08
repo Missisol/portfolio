@@ -166,12 +166,17 @@ function openMenu() {
 }
 
 function toggleSideMenu() {
-    iconWrap.addEventListener('click', () => iconWrap.classList.contains('active') ?
-        closeMenu() : openMenu());
-    menuWrap.addEventListener('click', () => closeMenu());
+    if (!!iconWrap) {
+        iconWrap.addEventListener('click', () => iconWrap.classList.contains('active') ?
+            closeMenu() : openMenu());
+    }
+
+    if (!!menuWrap) {
+        menuWrap.addEventListener('click', () => closeMenu());
+    }
 }
 
-function checkForScrolling() {
+function addEventListenersToAnchors() {
     for (let anchor of anchors) {
         anchor.addEventListener('click', (e) => {
             e.preventDefault();
@@ -198,17 +203,6 @@ function makeAnimation() {
     titleThree.classList.add('animate-three');
     titleFour.classList.add('animate-four');
     titleFive.classList.add('animate-five');
-}
-
-function getInterval() {
-    let DateTime = luxon.DateTime;
-    let Interval = luxon.Interval;
-    let now = DateTime.local();
-    let earlier = DateTime.local(2018, 6, 3);
-    const i = Interval.fromDateTimes(earlier, now);
-    return i.toDuration([
-        'years', 'months', 'days', 'hours', 'minutes', 'seconds'
-    ]).toObject();
 }
 
 function getEndingForSecondsMinutes(num) {
@@ -253,6 +247,40 @@ function getTextForDays(num) {
     return text;
 }
 
+function getInterval() {
+    let DateTime = luxon.DateTime;
+    let Interval = luxon.Interval;
+    let now = DateTime.local();
+    let earlier = DateTime.local(2018, 12, 1);
+    const i = Interval.fromDateTimes(earlier, now);
+    return i.toDuration([
+        'months', 'days', 'hours', 'minutes', 'seconds'
+    ]).toObject();
+}
+
+function getAllTimes() {
+    let interval = getInterval();
+
+    const textMonth = 'месяц';
+    const endingMonth = getEndingForHoursMonth(interval.months, textMonth);
+    month.textContent = String(`${interval.months} ${textMonth}${endingMonth}`);
+
+    const textDay = getTextForDays(interval.days);
+    day.textContent = String(`${interval.days} ${textDay}`);
+
+    const textHour = 'час';
+    const endingHour = getEndingForHoursMonth(interval.hours, textHour);
+    hour.textContent = String(`${interval.hours} ${textHour}${endingHour}`);
+
+    const textMinute = 'минут';
+    const endingMinute = getEndingForSecondsMinutes(interval.minutes);
+    minute.textContent = String(`${interval.minutes} ${textMinute}${endingMinute}`);
+
+    const textSecond = 'секунд';
+    const endingSecond = getEndingForSecondsMinutes(Math.round(interval.seconds));
+    second.textContent = String(`${Math.round(interval.seconds)} ${textSecond}${endingSecond}`);
+}
+
 function getSeconds() {
     const seconds = +getInterval().seconds;
     const text = 'секунд';
@@ -267,42 +295,6 @@ function getMinutes() {
     minute.textContent = String(`${minutes} ${text}${ending}`);
 }
 
-function getHours() {
-    const hours = +getInterval().hours;
-    const text = 'час';
-    const ending = getEndingForHoursMonth(hours, text);
-    hour.textContent = String(`${hours} ${text}${ending}`);
-}
-
-function getDays() {
-    const days = +getInterval().days;
-    const text = getTextForDays(days);
-    day.textContent = String(`${days} ${text}`);
-}
-
-function getMonth() {
-    const months = +getInterval().months;
-    const text = 'месяц';
-    const ending = getEndingForHoursMonth(months, text);
-    month.textContent = String(`${months} ${text}${ending}`);
-}
-
-function getYear() {
-    const years = +getInterval().years;
-    let text = '';
-    years === 1 ? text = 'год' : text = 'лет';
-    year.textContent = String(`${years} ${text}`);
-}
-
-function getAllTimes() {
-    getSeconds();
-    getMinutes();
-    getHours();
-    getDays();
-    getMonth();
-    getYear();
-}
-
 function loadScript(src) {
     return new Promise((resolve, reject) => {
         let script = document.createElement('script');
@@ -314,24 +306,28 @@ function loadScript(src) {
 }
 
 function init() {
-    toggleSideMenu();
-    checkForScrolling();
-    toggleVisibilityOfTheArrow();
-    checkInitImagesVisibility();
-    getScrollDirection();
-
     loadScript(src)
         .then(() => getAllTimes())
         .then(() => makeAnimation())
-        .then(() => setTimeout('typing()', 1200))
+        .then(() => setTimeout('typing()', 800))
         .then(() => {
             setTimeout(function cb() {
                 getSeconds();
-                getMinutes();
                 setTimeout(cb, 1000)
             }, 1000);
+
+            setTimeout(function cb() {
+                getMinutes();
+                setTimeout(cb, 60000)
+            }, 60000);
         })
         .catch(error => console.log('error'));
+
+    toggleSideMenu();
+    toggleVisibilityOfTheArrow();
+    addEventListenersToAnchors();
+    checkInitImagesVisibility();
+    getScrollDirection();
 
     document.addEventListener('scroll', (e) => {
         toggleVisibilityOfTheArrow();
