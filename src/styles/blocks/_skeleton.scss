@@ -1,0 +1,83 @@
+@use '../config' as *;
+
+
+.skeleton {
+  opacity: .4;
+  transition: .2s;
+
+  &__title-wrap {
+    height: 20em;
+
+    @include desktop {
+      width: 70%;
+    }
+
+    @include tablet {
+      width: 70%;
+    }
+
+    @include phone {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    height: 100%;
+    border-radius: 5px;
+    @include background-gradient('title');
+    animation: move-title-gradient $animation-duration infinite linear;
+
+    @include desktop {
+      width: 700px;
+    }
+
+    @include tablet {
+      width: 500px;
+    }
+
+    @include phone {
+      width: 100%;
+    }
+  }
+
+  &__greeting {
+    height: 6em;
+    border-radius: 5px;
+    @include background-gradient('greeting');
+    animation: move-greeting-gradient $animation-duration infinite linear;
+
+    @include desktop {
+      width: 25%;
+      margin-left: 75%;
+    }
+
+    @include tablet {
+      width: 30%;
+      margin-left: 70%;
+    }
+
+    @include phone {
+      width: 100%;
+    }
+  }
+}
+
+
+
+@keyframes move-title-gradient {
+  0% {
+    background-position: -$gradient-width;
+  }
+  100% {
+    background-position: calc(-100% + #{$gradient-width * 35});
+  }
+}
+
+@keyframes move-greeting-gradient {
+  0% {
+    background-position: -$gradient-width;
+  }
+  100% {
+    background-position: calc(-100% + #{$gradient-width * 10});
+  }
+}

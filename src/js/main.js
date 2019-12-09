@@ -22,6 +22,7 @@ const titleTwo = document.querySelector('.main__title-two');
 const titleThree = document.querySelector('.main__title-three');
 const titleFour = document.querySelector('.main__title-four');
 const titleFive = document.querySelector('.main__title-five');
+const spinner = document.querySelector('.main__spinner-wrap');
 
 function currentYPosition() {
     // Firefox, Chrome, Opera, Safari
@@ -199,6 +200,8 @@ function typing() {
 }
 
 function makeAnimation() {
+    spinner.style.display = 'none';
+
     titleOne.classList.add('animate-one');
     titleTwo.classList.add('animate-two');
     titleThree.classList.add('animate-three');

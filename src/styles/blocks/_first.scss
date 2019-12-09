@@ -72,6 +72,34 @@
     }
   }
 
+  &__spinner-wrap {
+    width: 100%;
+    display: flex;
+  }
+
+  &__spinner {
+
+    @include desktop {
+      margin-left: calc((75% - 109px) / 2);
+    }
+
+    @include tablet {
+      margin-left: calc((75% - 109px) / 2);
+    }
+
+    @include phone {
+      margin-left: calc((100% - 50px) / 2);
+      margin-top: -100px;
+    }
+  }
+
+  &__spinner {
+    @include phone {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
   &__title {
     font-weight: 500;
 

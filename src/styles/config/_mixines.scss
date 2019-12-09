@@ -56,3 +56,9 @@
   }
 }
 
+@mixin background-gradient($name) {
+  background-image: linear-gradient(90deg,
+          v.$base-color 0px,
+          v.$shine-color (v.$gradient-width / 2),
+          v.$base-color v.$gradient-width);
+}
