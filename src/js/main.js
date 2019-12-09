@@ -255,15 +255,19 @@ function getInterval() {
     let DateTime = luxon.DateTime;
     let Interval = luxon.Interval;
     let now = DateTime.local();
-    let earlier = DateTime.local(2018, 12, 1);
+    let earlier = DateTime.local(2018, 6, 3);
     const i = Interval.fromDateTimes(earlier, now);
     return i.toDuration([
-        'months', 'days', 'hours', 'minutes', 'seconds'
+        'years', 'months', 'days', 'hours', 'minutes', 'seconds'
     ]).toObject();
 }
 
 function getAllTimes() {
     let interval = getInterval();
+
+    let text = '';
+    interval.years === 1 ? text = 'год' : text = 'лет';
+    year.textContent = String(`${interval.years} ${text}`);
 
     const textMonth = 'месяц';
     const endingMonth = getEndingForHoursMonth(interval.months, textMonth);
