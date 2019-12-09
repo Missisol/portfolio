@@ -251,6 +251,18 @@ function getTextForDays(num) {
     return text;
 }
 
+function getTextForYears(num) {
+    let text = '';
+    if (num === 1) {
+        text = 'год';
+    } else if (num > 1 && num <= 4) {
+        text = 'года';
+    } else if (num < 1 || num > 4) {
+        text = 'лет';
+    }
+    return text;
+}
+
 function getInterval() {
     let DateTime = luxon.DateTime;
     let Interval = luxon.Interval;
@@ -265,8 +277,7 @@ function getInterval() {
 function getAllTimes() {
     let interval = getInterval();
 
-    let text = '';
-    interval.years === 1 ? text = 'год' : text = 'лет';
+    const text = getTextForYears(interval.years);
     year.textContent = String(`${interval.years} ${text}`);
 
     const textMonth = 'месяц';
