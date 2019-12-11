@@ -18,21 +18,12 @@ const hour = document.querySelector('#hour');
 const day = document.querySelector('#day');
 const month = document.querySelector('#month');
 const year = document.querySelector('#year');
-const titleOne = document.querySelector('.main__title-one');
-const titleTwo = document.querySelector('.main__title-two');
-const titleThree = document.querySelector('.main__title-three');
-const titleFour = document.querySelector('.main__title-four');
-const titleFive = document.querySelector('.main__title-five');
 const spinner = document.querySelector('.main__spinner-wrap');
 
 function currentYPosition() {
-    // Firefox, Chrome, Opera, Safari
-    if (self.pageYOffset) return self.pageYOffset;
-    // Internet Explorer 6 - standards mode
-    if (document.documentElement && document.documentElement.scrollTop)
-        return document.documentElement.scrollTop;
-    // Internet Explorer 6, 7 and 8
-    if (document.body.scrollTop) return document.body.scrollTop;
+    if (window.pageYOffset) {
+        return window.pageYOffset;
+    }
     return 0;
 }
 
@@ -75,14 +66,6 @@ function smoothScroll(eID) {
         if (leapY < stopY) leapY = stopY;
         timer++;
     }
-}
-
-function isVisible(elem) {
-    let coords = elem.getBoundingClientRect();
-    let windowHeight = document.documentElement.clientHeight;
-    let topVisible = coords.top > 0 && coords.top < windowHeight;
-    let bottomVisible = coords.bottom < windowHeight && coords.bottom > 0;
-    return topVisible || bottomVisible;
 }
 
 function isVisibleTop(elem) {
