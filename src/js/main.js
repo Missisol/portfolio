@@ -2,6 +2,7 @@
 
 const message = `Привет. Меня зовут Марина. Я верстаю сайты с помощью HTML, CSS и JS. 
                 Люблю минимализм и сложные задачи.`;
+const postfixes = ['one', 'two', 'three', 'four', 'five'];
 let counter = 0;
 const src = 'assets/libs/luxon.min.js';
 const iconWrap = document.querySelector('#icon-wrap');
@@ -202,11 +203,10 @@ function typing() {
 function makeAnimation() {
     spinner.style.display = 'none';
 
-    titleOne.classList.add('animate-one');
-    titleTwo.classList.add('animate-two');
-    titleThree.classList.add('animate-three');
-    titleFour.classList.add('animate-four');
-    titleFive.classList.add('animate-five');
+    for (let postfix of postfixes) {
+        const elem = document.querySelector(`.main__title-${postfix}`);
+        elem.classList.add('animate-title');
+    }
 }
 
 function getEndingForSecondsMinutes(num) {

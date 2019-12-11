@@ -147,6 +147,26 @@
     opacity: 0;
   }
 
+  &__title-one {
+    --i: 0;
+  }
+
+  &__title-two {
+    --i: 1;
+  }
+
+  &__title-three {
+    --i: 2;
+  }
+
+  &__title-four {
+    --i: 3;
+  }
+
+  &__title-five {
+    --i: 4;
+  }
+
   &__wrap {
 
     @include desktop {
@@ -163,24 +183,9 @@
   }
 }
 
-.animate-one {
-  animation: appearance .4s linear  forwards;
-}
-
-.animate-two {
-  animation: appearance .4s linear .1s forwards;
-}
-
-.animate-three {
-  animation: appearance .4s linear .2s forwards;
-}
-
-.animate-four {
-  animation: appearance .4s linear .3s forwards;
-}
-
-.animate-five {
-  animation: appearance .4s linear .4s forwards;
+.animate-title {
+  --delay: calc(var(--i, 0) * 100ms);
+  animation: appearance .4s linear var(--delay) forwards;
 }
 
 
