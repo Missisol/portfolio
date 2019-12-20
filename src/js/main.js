@@ -1,7 +1,7 @@
 'use strict';
 
-const message = `Привет. Меня зовут Марина. Я верстаю сайты с помощью HTML, CSS и JS. 
-                Люблю минимализм и сложные задачи.`;
+const message = `Привет. Меня зовут Марина. Я верстаю сайты с помощью HTML, CSS и JS.
+Люблю минимализм и сложные задачи.`;
 const postfixes = ['one', 'two', 'three', 'four', 'five'];
 let counter = 0;
 const src = 'assets/libs/luxon.min.js';
