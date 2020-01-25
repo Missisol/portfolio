@@ -137,17 +137,15 @@ function toggleVisibilityOfTheArrow() {
 }
 
 function closeMenu() {
-    iconWrap.classList.remove('active');
-    menuWrap.classList.remove('visible');
-    menuWrap.classList.add('invisible');
+    iconWrap.classList.toggle('active');
+    menuWrap.classList.replace('visible', 'invisible');
     document.body.style.overflow = 'auto';
 }
 
 function openMenu() {
     menuWrap.classList.contains('hidden') ? menuWrap.classList.remove('hidden') : null;
-    iconWrap.classList.add('active');
-    menuWrap.classList.add('visible');
-    menuWrap.classList.remove('invisible');
+    iconWrap.classList.toggle('active');
+    menuWrap.classList.replace('invisible', 'visible');
     document.body.style.overflow = 'hidden';
 }
 
