@@ -37,7 +37,7 @@
     "gulp-useref": "^3.1.6",
     "multipipe": "^3.0.1",
     "sass": "^1.23.6",
-    "node-sass": "^4.13.1"
+    "node-sass": "^7.0.0"
   },
   "dependencies": {
   }
